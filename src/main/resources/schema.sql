@@ -1,0 +1,8 @@
+CREATE TABLE IF NOT EXISTS transfer (
+    id BIGSERIAL PRIMARY KEY,
+    employee_id BIGINT NOT NULL,
+    amount NUMERIC(15, 2) NOT NULL,
+    transfer_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    status VARCHAR(10) NOT NULL CHECK (status IN ('SUCCESS', 'FAILED')),
+    message VARCHAR(255)
+);
