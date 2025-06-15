@@ -27,23 +27,23 @@ public class TransferService {
 	//////////////////////////////
 	public Transfer processSalary(Transfer transfer) {
 		try {
-			// Step 1: Get employee info
+			// Step 1: get employee info
 			EmployeeDTO employee = employeeClient.getEmployeeById(transfer.getEmployeeId());
 
-			// Step 2: Get employee account
+			// Step 2: get employee account
 			AccountDTO employeeAccount = accountClient.getAccount(employee.getAccountId());
 
-			// Step 3: Get company account (hardcoded company account ID = 1 for now)
+			// Step 3: get company account (hardcoded company account ID = 1 for now(testing))
 			AccountDTO companyAccount = accountClient.getAccount(1L);
 
 			double amount = transfer.getAmount();
 
-			// Step 4: Check balance
+			// Step 4: check balance
 			if (companyAccount.getBalance() < amount) {
 				throw new RuntimeException("Insufficient company balance");
 			}
 
-			// Step 5: Update balances
+			// Step 5: update balances
 			accountClient.updateBalance(1L, companyAccount.getBalance() - amount);
 			accountClient.updateBalance(employeeAccount.getId(), employeeAccount.getBalance() + amount);
 
