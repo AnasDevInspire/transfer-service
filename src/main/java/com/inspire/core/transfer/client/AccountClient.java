@@ -13,6 +13,6 @@ public interface AccountClient {
     @GetMapping("/accounts/{id}/{type}")
     AccountDTO getAccount(@PathVariable("id") Long id,@PathVariable("type") String type);
 
-    @PutMapping("/accounts/{id}/balance/{newBalance}")
+    @PutMapping("/accounts/{id}/{newBalance}")
     void updateBalance(@PathVariable("id") Long id, @PathVariable double newBalance);
 }

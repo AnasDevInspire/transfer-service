@@ -1,6 +1,7 @@
 package com.inspire.core.transfer.dto;
 
 public class AccountDTO {
+
 	private Long id;
 	private String type;
 	private double balance;

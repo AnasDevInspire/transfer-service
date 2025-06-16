@@ -1,6 +1,7 @@
 package com.inspire.core.transfer.dto;
 
 public class EmployeeDTO {
+
 	private Long id;
 	private String name;
 	private String email;

@@ -21,11 +21,13 @@ public class TransferController {
     private TransferService service;
 
     @PostMapping("/salary")
+    ////////////////////////////////////////////
     public ResponseEntity<Transfer> paySalary(@RequestBody Transfer transfer) {
         return ResponseEntity.ok(service.processSalary(transfer));
     }
 
     @GetMapping("/transfers")
+    ////////////////////////////////////////////
     public ResponseEntity<List<Transfer>> getAll() {
         return ResponseEntity.ok(service.getAllTransfers());
     }
