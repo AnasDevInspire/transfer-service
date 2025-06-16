@@ -10,8 +10,8 @@ import com.inspire.core.transfer.dto.AccountDTO;
 @FeignClient(name = "account-service")
 public interface AccountClient {
 
-    @GetMapping("/accounts/{id}")
-    AccountDTO getAccount(@PathVariable("id") Long id);
+    @GetMapping("/accounts/{id}/{type}")
+    AccountDTO getAccount(@PathVariable("id") Long id,@PathVariable("type") String type);
 
     @PutMapping("/accounts/{id}/balance/{newBalance}")
     void updateBalance(@PathVariable("id") Long id, @PathVariable double newBalance);

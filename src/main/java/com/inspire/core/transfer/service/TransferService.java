@@ -31,10 +31,10 @@ public class TransferService {
 			EmployeeDTO employee = employeeClient.getEmployeeById(transfer.getEmployeeId());
 
 			// Step 2: get employee account
-			AccountDTO employeeAccount = accountClient.getAccount(employee.getAccountId());
+			AccountDTO employeeAccount = accountClient.getAccount(employee.getAccountId(), "EMPLOYEE");
 
-			// Step 3: get company account (hardcoded company account ID = 1 for now(testing))
-			AccountDTO companyAccount = accountClient.getAccount(1L);
+			// Step 3: get company account
+			AccountDTO companyAccount = accountClient.getAccount(1L, "COMPANY");
 
 			double amount = transfer.getAmount();
 
